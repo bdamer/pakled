@@ -96,7 +96,7 @@ namespace pakled
 		for (const auto& e : filled_list)
 		{
 			// std::cout << "Rect: [" << e.rect.x << ", " << e.rect.y << " - " << e.rect.w << "x" << e.rect.h << "]" << std::endl;
-			surface.blt(*e.img->surface, e.rect.x, e.rect.y);
+			surface.blend(*e.img->surface, e.rect.x, e.rect.y);
 		}
 
 		if (show_empty)
