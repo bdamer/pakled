@@ -13,7 +13,7 @@ An easy-to-use texture atlas generator.
 
 ## Command line
 
-pakled.exe <size> <input directory> <output file>
+pakled.exe &lt;size&gt; &lt;input directory&gt; &lt;output file&gt;
 
 Example:
 
