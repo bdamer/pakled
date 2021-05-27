@@ -19,7 +19,8 @@ namespace pakled
 		Packer(int target_size) : target_size(target_size) { }
 		~Packer(void) { }
 
-		void pack(std::vector<BinEntry>& entries);
+		// Packs entries. Will return 0 on success, otherwise count of failures.
+		int pack(std::vector<BinEntry>& entries);
 
 		void save_atlas(const std::string& filename) const;
 		void save_image_map(const std::string& filename, bool show_empty = false);

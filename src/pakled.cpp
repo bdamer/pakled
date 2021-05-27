@@ -53,9 +53,9 @@ int main(int argc, char** argv)
         entries.push_back(BinEntry{ Rect{ 0, 0, img->surface->get_width(), img->surface->get_height() }, img.get() });
 
     Packer packer(size);
-    packer.pack(entries);
+    const auto error_count = packer.pack(entries);
     packer.save_image_map(output_name + ".png");
     packer.save_atlas(output_name + ".map");
 
-    return 0;
+    return error_count;
 }

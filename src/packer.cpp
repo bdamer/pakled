@@ -18,8 +18,10 @@ namespace pakled
 		free_list.push_back(e);
 	}
 
-	void Packer::pack(std::vector<BinEntry>& entries)
+	int Packer::pack(std::vector<BinEntry>& entries)
 	{
+		auto error_count = 0;
+
 		free_list.clear();
 		free_list.push_back(Rect{ 0, 0, target_size, target_size });
 
@@ -54,6 +56,7 @@ namespace pakled
 			if (free_it == free_list.end())
 			{
 				std::cerr << "WARN: Unable to find match for " << it->img->filename << " [" << it->rect.w << "x" << it->rect.h << "] - skipping..." << std::endl;
+				error_count++;
 				continue;
 			}
 
@@ -70,6 +73,8 @@ namespace pakled
 			if (bottom.w > 0 && bottom.h > 0)
 				insert_free(bottom);
 		}
+
+		return error_count;
 	}
 
 	void Packer::save_atlas(const std::string& filename) const
