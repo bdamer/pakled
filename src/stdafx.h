@@ -18,7 +18,9 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
+#include <sstream>
 #include <stdint.h>
+#include <string>
 #include <unordered_map>
 
 // External dependencies
